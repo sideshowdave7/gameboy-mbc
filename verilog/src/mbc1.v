@@ -5,7 +5,7 @@ module mbc1(
 	 input gb_read_n,
 
 	 //GB rst
-	 input gb_rst_n,
+	 input rst_n,
 
 	 //ROM chip select
 	 input cs_n,

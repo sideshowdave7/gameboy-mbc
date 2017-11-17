@@ -237,8 +237,8 @@ proc add_source_files {} {
 
    puts "$myScript: Adding sources to project..."
 
-   xfile add "src/mojo.ucf"
-   xfile add "src/mbc1.v"
+   xfile add "../src/mojo.ucf"
+   xfile add "../src/mbc1.v"
 
    # Set the Top Module as well...
    project set top "mbc1"
