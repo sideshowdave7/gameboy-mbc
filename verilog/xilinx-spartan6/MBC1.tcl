@@ -278,7 +278,8 @@ proc create_libraries {} {
 #
 proc set_process_props {} {
 
-   global myScript
+    global myScript
+    global compile_directory
 
    if { ! [ open_project ] } {
       return false
@@ -449,6 +450,7 @@ proc set_process_props {} {
    project set "Use Synthesis Constraints File" "true" -process "Synthesize - XST"
    project set "Verilog Include Directories" "" -process "Synthesize - XST"
    project set "Verilog Macros" "" -process "Synthesize - XST"
+   project set "Work Directory" $compile_directory -process "Synthesize - XST"
    project set "Write Timing Constraints" "false" -process "Synthesize - XST"
    project set "Other XST Command Line Options" "-use_new_parser yes" -process "Synthesize - XST"
    project set "Timing Mode" "Non Timing Driven" -process "Map"
