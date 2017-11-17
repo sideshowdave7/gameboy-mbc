@@ -79,13 +79,13 @@ module mbc5(
    end
 
    //Ram bank enable & logic
-   reg [1:0] RAM_bank;
+   reg [3:0] RAM_bank;
    assign RAM_bank_wr_en = {addr_15, addr_14, addr_13} == 3'b010 & ~gb_write_n;
    always@(posedge RAM_bank_wr_en) begin
 	    if (~rst_n) begin
-	       RAM_bank <= 2'h0;
+	       RAM_bank <= 4'h0;
 	    end else begin
-	       RAM_bank <= gb_data[1:0];
+	       RAM_bank <= gb_data[3:0];
 	    end
    end
 
