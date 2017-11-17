@@ -1,51 +1,31 @@
 module mbc1(
-    // 50MHz clock input
-    input clk,
-    // Input from reset button (active low)
-    input rst_n,
-    // cclk input from AVR, high when AVR is ready
-    input cclk,
-    // Outputs to the 8 onboard LEDs
-    output[7:0]led,
-    // AVR SPI connections
-    output spi_miso,
-    input spi_ss,
-    input spi_mosi,
-    input spi_sck,
-    // AVR ADC channel select
-    output [3:0] spi_channel,
-    // Serial connections
-    input avr_tx, // AVR Tx => FPGA Rx
-    output avr_rx, // AVR Rx => FPGA Tx
-    input avr_rx_busy, // AVR Rx buffer full
-	 
 	 //GB data and latch pins
 	 input [4:0] gb_data,
 	 input gb_write_n,
 	 input gb_read_n,
-	 
+
 	 //GB rst
 	 input gb_rst_n,
-	 
+
 	 //ROM chip select
 	 input cs_n,
-	 
+
 	 //Upper address bits from GB
 	 input addr_15,
 	 input addr_14,
 	 input addr_13,
-	 
+
 	 //ROM Mapped Upper address bits
 	 output m0,
 	 output m1,
 	 output m2,
 	 output m3,
 	 output m4,
-	 
+
 	 //Extended address bits
 	 output ea0,
 	 output ea1,
-	 
+
 	 //Chip selects
 	 output ram_cs,
 	 output ram_cs_n,
