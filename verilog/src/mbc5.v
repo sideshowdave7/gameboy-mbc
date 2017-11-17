@@ -32,14 +32,7 @@ module mbc5(
 	 output      ram_cs_n,
 	 output      rom_cs_n
     );
-
-   wire        rst = ~rst_n; // make reset active high
-
-   // these signals should be high-z when not used
-   assign spi_miso = 1'bz;
-   assign avr_rx = 1'bz;
-   assign spi_channel = 4'bzzzz;
-
+   
    //MBC Logic
    //Ram enable & logic
    reg         RAM_enable;
