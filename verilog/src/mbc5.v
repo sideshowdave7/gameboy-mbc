@@ -1,46 +1,30 @@
 module mbc5(
 	 //GB data and latch pins
-	 input [7:0] gb_data,
-	 input       gb_write_n,
+	 input [7:0]  gb_data,
+	 input        gb_write_n,
 
 	 //GB rst
-	 input       rst_n,
+	 input        rst_n,
 
 	 //ROM chip select
-	 input       cs_n,
+	 input        cs_n,
 
 	 //Upper address bits from GB
-	 input       addr_15,
-	 input       addr_14,
-	 input       addr_13,
-    input       addr_12,
+	 input        addr_15,
+	 input        addr_14,
+	 input        addr_13,
+   input        addr_12,
 
 	 //ROM Mapped Upper address bits
-	 output      m0,
-	 output      m1,
-	 output      m2,
-	 output      m3,
-	 output      m4,
-	 output      m5,
-	 output      m6,
-	 output      m7,
-	 output      m8,
+   output [8:0] rom_addr,
 
 	 //Extended address bits
-	 output      ea0,
-	 output      ea1,
-	 output      ea2,
-	 output      ea3,
+   output [3:0] ram_addr,
 
-	 //Chip selects
-	 output      ram_cs_n,
-	 
-	 output      led,
-	 input       pb
+	 //RAM chip select
+	 output       ram_cs_n,
     );
-	
-	assign led = pb;
-	
+
    //MBC Logic
    //Ram enable & logic
    reg         RAM_enable;
@@ -101,20 +85,20 @@ module mbc5(
 	    end
    end
 
-   assign m0 = ROM_bank[0] & addr_14;
-   assign m1 = ROM_bank[1] & addr_14;
-   assign m2 = ROM_bank[2] & addr_14;
-   assign m3 = ROM_bank[3] & addr_14;
-   assign m4 = ROM_bank[4] & addr_14;
-   assign m5 = ROM_bank[5] & addr_14;
-   assign m6 = ROM_bank[6] & addr_14;
-   assign m7 = ROM_bank[7] & addr_14;
-   assign m8 = ROM_bank[8] & addr_14;
+   assign ram_addr[0] = ROM_bank[0] & addr_14;
+   assign ram_addr[1] = ROM_bank[1] & addr_14;
+   assign ram_addr[2] = ROM_bank[2] & addr_14;
+   assign ram_addr[3] = ROM_bank[3] & addr_14;
+   assign ram_addr[4] = ROM_bank[4] & addr_14;
+   assign ram_addr[5] = ROM_bank[5] & addr_14;
+   assign ram_addr[6] = ROM_bank[6] & addr_14;
+   assign ram_addr[7] = ROM_bank[7] & addr_14;
+   assign ram_addr[8] = ROM_bank[8] & addr_14;
 
-   assign ea0 = RAM_bank[0];
-   assign ea1 = RAM_bank[1];
-	assign ea2 = RAM_bank[2];
-	assign ea3 = RAM_bank[3];
+   assign rom_addr[0] = RAM_bank[0];
+   assign rom_addr[1] = RAM_bank[1];
+	 assign rom_addr[2] = RAM_bank[2];
+	 assign rom_addr[3] = RAM_bank[3];
 
    assign ram_cs_n = ~RAM_enable | cs_n;
 
