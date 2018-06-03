@@ -18,20 +18,20 @@ NET "addr_14" LOC = P23;
 NET "addr_13" LOC = P27;
 NET "addr_12" LOC = P28;
 
-NET "m0" LOC = P29;
-NET "m1" LOC = P30;
-NET "m2" LOC = P31;
-NET "m3" LOC = P32;
-NET "m4" LOC = P33;
-NET "m5" LOC = P34;
-NET "m6" LOC = P36;
-NET "m7" LOC = P37;
-NET "m8" LOC = P19;
+NET "ram_addr<0>" LOC = P29;
+NET "ram_addr<1>" LOC = P30;
+NET "ram_addr<2>" LOC = P31;
+NET "ram_addr<3>" LOC = P32;
+NET "ram_addr<4>" LOC = P33;
+NET "ram_addr<5>" LOC = P34;
+NET "ram_addr<6>" LOC = P36;
+NET "ram_addr<7>" LOC = P37;
+NET "ram_addr<8>" LOC = P19;
 
-NET "ea0" LOC = P40;
-NET "ea1" LOC = P41;
-NET "ea2" LOC = P42;
-NET "ea3" LOC = P43;
+NET "rom_addr<0>" LOC = P40;
+NET "rom_addr<1>" LOC = P41;
+NET "rom_addr<2>" LOC = P42;
+NET "rom_addr<3>" LOC = P43;
 
 NET "ram_cs_n" LOC = P20;
 
