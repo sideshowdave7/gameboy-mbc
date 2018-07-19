@@ -34,6 +34,3 @@ NET "ram_addr<2>" LOC = P42;
 NET "ram_addr<3>" LOC = P43;
 
 NET "ram_cs_n" LOC = P20;
-
-NET "led" LOC = P39;
-NET "pb" LOC = P18;
